@@ -1,0 +1,15 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.accordion {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.25s ease-out all;
+}
+
+.accordion.expanded {
+  max-height: 20em;
+}/*# sourceMappingURL=main.css.map */
