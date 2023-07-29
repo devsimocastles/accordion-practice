@@ -14,14 +14,18 @@ function Accordion(props){
         <section className="accordion-container">
             <div className="color-bar"></div>
             <div className="content">
-                {props.title} 
-                <button className="expand-button" onClick={updateIcon}>
-                    <FontAwesomeIcon icon={ !expand ? faPlus : faMinus} />
-                </button>
+                <header>
+                    <h3>     {props.title} </h3>
+           
+                    <button className="expand-button" onClick={updateIcon}>
+                        <FontAwesomeIcon icon={ !expand ? faPlus : faMinus} />
+                    </button>
+                </header>
                 <section className={`accordion${!expand ? "" : " expanded"}`}>
                    <p>{props.accordionContent}</p>
                 </section>
             </div>
+               
         </section>
     );
 }

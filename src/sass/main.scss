@@ -1,16 +1,82 @@
+// ROBOTO FONT IMPORT////////////////////////////////
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+// VARS ////////////////////
+$charcoal: #233D4D;
+$pumpkin: #FE7F2D;
+$sunglow: #FCCA46;
+$olivine: #A1C181;
+$zomp: #619B8A;
+
+// CSS RESET //////////////
 *, *::after, *::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
-.accordion{
-    max-height: 0;
-    overflow: hidden;
-    transition: .25s ease-out all;
+// MIXINS /////////////////
+@mixin setFlex($fd, $ai, $jc){
+    display: flex;
+    flex-direction: $fd;
+    align-items: $ai;
+    justify-content: $jc;
 }
 
-.accordion.expanded{
-    max-height: 20em;
+
+// STYLES ////////////////
+.App{
+ @include setFlex(column, center, center);
+ min-height: 100vh;
+ font-family: "Roboto", sans-serif;
 }
+
+main{
+    max-width: 40em;
+    padding: 1em;
+    header{
+        text-align: center;
+        margin-bottom: 1.25em;
+        h1{
+            
+        }
+    }
+    .accordion-wrapper{
+        @include setFlex(column, center, space-evenly);
+        margin: 0 1em;
+        min-height: 27.5em;
+        .accordion-container{
+            background-color: red;
+            margin: 1em 0;
+            .content{
+                header{
+                    padding: 1em;
+                    margin: 0;
+                    @include setFlex(row, flex-start, space-between);
+                    h3{
+                        text-align: left;
+                        font-size: 16px;
+                    }
+                }
+                .accordion{
+                    font-size: 14px;
+                    padding: 0;
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: .4s ease all;
+                    opacity: 0;
+                    width: 85%;
+                }
+                .accordion.expanded{
+                    max-height: 10em;
+                    margin: .5em 0;
+                    opacity: 1;
+                    overflow: hidden;
+                    padding: 1em;
+                    }
+            }
+        }
+    }
+
+}    
